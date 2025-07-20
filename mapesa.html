@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ochimapesa Campaign 2027</title>
+    <title>Ochimapesa Campaign - Join Our Team</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -12,61 +12,80 @@
     <!-- Custom CSS -->
     <style>
         :root {
-            --primary-color: #1a5276;
-            --secondary-color: #d4ac0d;
-            --accent-color: #e74c3c;
-            --light-color: #f8f9fa;
-            --dark-color: #343a40;
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --accent-color: #f39c12;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-color);
             overflow-x: hidden;
         }
 
-        .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 120px 0;
-            text-align: center;
-        }
-
         .navbar {
-            background-color: var(--primary-color) !important;
+            background-color: var(--primary-color);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .navbar-brand {
             font-weight: 700;
-            color: white !important;
+            color: white;
         }
 
         .nav-link {
-            color: rgba(255, 255, 255, 0.8) !important;
+            color: rgba(255, 255, 255, 0.8);
             font-weight: 500;
             margin: 0 10px;
             transition: all 0.3s;
         }
 
         .nav-link:hover {
-            color: white !important;
-            transform: translateY(-2px);
+            color: white;
         }
 
-        .btn-primary {
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
             background-color: var(--secondary-color);
-            border-color: var(--secondary-color);
-            color: var(--dark-color);
-            font-weight: 600;
-            padding: 10px 25px;
-        }
-
-        .btn-primary:hover {
-            background-color: #b7950b;
-            border-color: #b7950b;
-            transform: translateY(-2px);
         }
 
         .position-card {
@@ -74,7 +93,7 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             height: 100%;
         }
 
@@ -83,72 +102,66 @@
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
 
-        .card-header {
-            background-color: var(--primary-color);
-            color: white;
-            font-weight: 600;
-            border-radius: 10px 10px 0 0 !important;
+        .position-card .card-body {
+            padding: 30px;
         }
 
-        .section-title {
-            position: relative;
-            margin-bottom: 50px;
-            color: var(--primary-color);
+        .position-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
         }
 
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
+        .btn-primary {
             background-color: var(--secondary-color);
-        }
-
-        .stats-item {
-            text-align: center;
-            padding: 30px 15px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-color: var(--secondary-color);
+            padding: 10px 25px;
+            font-weight: 600;
             transition: all 0.3s;
         }
 
-        .stats-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        .btn-primary:hover {
+            background-color: #c0392b;
+            border-color: #c0392b;
+            transform: translateY(-2px);
         }
 
-        .stats-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 10px;
+        .btn-outline-primary {
+            color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            font-weight: 600;
+            transition: all 0.3s;
         }
 
-        .stats-label {
-            font-size: 1rem;
-            color: var(--dark-color);
+        .btn-outline-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: white;
+        }
+
+        .application-form {
+            background-color: var(--light-color);
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         footer {
-            background-color: var(--dark-color);
+            background-color: var(--primary-color);
             color: white;
             padding: 50px 0 20px;
         }
 
         .social-icons a {
-            color: rgb(17, 7, 7);
+            color: white;
             font-size: 1.5rem;
             margin: 0 10px;
             transition: all 0.3s;
         }
 
         .social-icons a:hover {
-            color: var(--secondary-color);
-            transform: translateY(-5px);
+            color: var(--accent-color);
+            transform: translateY(-3px);
         }
 
         .back-to-top {
@@ -158,7 +171,7 @@
             width: 50px;
             height: 50px;
             background-color: var(--secondary-color);
-            color: var(--dark-color);
+            color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -176,36 +189,18 @@
         }
 
         .back-to-top:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .modal-content {
-            border-radius: 15px;
-            border: none;
-        }
-
-        .form-control {
-            padding: 12px 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
-
-        .form-control:focus {
-            box-shadow: 0 0 0 0.25rem rgba(26, 82, 118, 0.25);
-            border-color: var(--primary-color);
-        }
-
-        .volunteer-btn {
-            background-color: var(--accent-color);
-            border-color: var(--accent-color);
-            color: white;
-        }
-
-        .volunteer-btn:hover {
             background-color: #c0392b;
-            border-color: #c0392b;
             color: white;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 0;
+            }
+
+            .application-form {
+                padding: 30px;
+            }
         }
     </style>
 </head>
@@ -215,7 +210,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <i class="fas fa-handshake me-2"></i>Ochimapesa 2027
+                <i class="fas fa-hands-helping me-2"></i>Ochimapesa Campaign
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -226,17 +221,16 @@
                         <a class="nav-link" href="#home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="#positions">Positions</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link" href="#apply">Apply</a>
                     </li>
-                    <li class="nav-item ms-lg-3">
-                        <a class="btn btn-primary rounded-pill" href="#" data-bs-toggle="modal"
-                            data-bs-target="#applyModal">Apply Now</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -244,45 +238,156 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section" id="home">
-        <div class="container">
-            <h1 class="display-3 fw-bold mb-4">Join the Ochimapesa Campaign 2027</h1>
-            <p class="lead mb-5">Be part of the movement that will transform our community. Apply for key positions in
-                our campaign team today.</p>
-            <div class="d-flex justify-content-center gap-3">
-                <a href="#positions" class="btn btn-primary btn-lg rounded-pill">View Positions</a>
-                <a href="#" class="btn btn-outline-light btn-lg rounded-pill" data-bs-toggle="modal"
-                    data-bs-target="#volunteerModal">Volunteer</a>
-            </div>
+    <section class="hero text-center" id="home">
+        <div class="container hero-content">
+            <h1 class="display-4 fw-bold mb-4">Join the Ochimapesa Campaign Team for the 2027 elections</h1>
+            <p class="lead mb-5">Be part of a movement that's making a real difference in our community. Apply for one
+                of our exciting positions today!</p>
+            <a href="#positions" class="btn btn-primary btn-lg me-3">View Positions</a>
+            <a href="#apply" class="btn btn-outline-light btn-lg">Apply Now</a>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="py-5 bg-light">
+    <!-- Positions Section -->
+    <section class="py-5" id="positions">
         <div class="container">
-            <div class="row g-4">
-                <div class="col-md-3">
-                    <div class="stats-item">
-                        <div class="stats-number" id="positionsCount">0</div>
-                        <div class="stats-label">Open Positions</div>
+            <h2 class="text-center section-title">Available Positions</h2>
+            <p class="text-center mb-5">We're looking for passionate individuals to fill these key roles in our
+                campaign.</p>
+
+            <div class="row">
+                <!-- Position 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="position-card">
+                        <div class="card-body text-center">
+                            <div class="position-icon">
+                                <i class="fas fa-bullhorn"></i>
+                            </div>
+                            <h3>Communication & Marketing Strategist</h3>
+                            <p>Develop and implement comprehensive communication strategies for both print and social
+                                media to amplify our campaign's message.</p>
+                            <a href="#apply" class="btn btn-outline-primary">Apply Now</a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="stats-item">
-                        <div class="stats-number" id="daysLeft">0</div>
-                        <div class="stats-label">Days to Election</div>
+
+                <!-- Position 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="position-card">
+                        <div class="card-body text-center">
+                            <div class="position-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <h3>Office Assistants & Planning Managers</h3>
+                            <p>Provide administrative support and strategic planning to ensure the smooth operation of
+                                our campaign activities.</p>
+                            <a href="#apply" class="btn btn-outline-primary">Apply Now</a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="stats-item">
-                        <div class="stats-number" id="fundsRaised">0</div>
-                        <div class="stats-label">Funds Raised (KSh)</div>
+
+                <!-- Position 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="position-card">
+                        <div class="card-body text-center">
+                            <div class="position-icon">
+                                <i class="fas fa-hand-holding-usd"></i>
+                            </div>
+                            <h3>Campaign Fund Mobilizers</h3>
+                            <p>Engage with local diaspora communities to secure funding through our GoFundMe model and
+                                other fundraising initiatives.</p>
+                            <a href="#apply" class="btn btn-outline-primary">Apply Now</a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="stats-item">
-                        <div class="stats-number" id="volunteersCount">0</div>
-                        <div class="stats-label">Volunteers</div>
+
+                <!-- Position 4 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="position-card">
+                        <div class="card-body text-center">
+                            <div class="position-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Seme Youth League Mobilizers</h3>
+                            <p>Engage and mobilize youth in the Seme community to participate in campaign activities and
+                                spread our message.</p>
+                            <a href="#apply" class="btn btn-outline-primary">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Position 5 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="position-card">
+                        <div class="card-body text-center">
+                            <div class="position-icon">
+                                <i class="fas fa-female"></i>
+                            </div>
+                            <h3>Women League Champions</h3>
+                            <p>Represent and advocate for women's issues within the campaign, ensuring gender
+                                perspectives are integrated.</p>
+                            <a href="#apply" class="btn btn-outline-primary">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Position 6 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="position-card">
+                        <div class="card-body text-center">
+                            <div class="position-icon">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h3>Wazee & Gentlemen Champions</h3>
+                            <p>Engage with elders and respected community members to build support and credibility for
+                                our campaign.</p>
+                            <a href="#apply" class="btn btn-outline-primary">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Position 7 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="position-card">
+                        <div class="card-body text-center">
+                            <div class="position-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Security Managers</h3>
+                            <p>Ensure the safety and security of campaign events, personnel, and assets throughout all
+                                activities.</p>
+                            <a href="#apply" class="btn btn-outline-primary">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Position 8 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="position-card">
+                        <div class="card-body text-center">
+                            <div class="position-icon">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <h3>Project Managers</h3>
+                            <p>Oversee specific campaign projects from conception to completion, ensuring they meet
+                                objectives.</p>
+                            <a href="#apply" class="btn btn-outline-primary">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Position 9 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="position-card">
+                        <div class="card-body text-center">
+                            <div class="position-icon">
+                                <i class="fas fa-hands-helping"></i>
+                            </div>
+                            <h3>Ochimapesa Volunteers</h3>
+                            <p>General volunteer positions for those who want to contribute to the campaign in various
+                                capacities.</p>
+                            <a href="#apply" class="btn btn-outline-primary">Apply Now</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -290,238 +395,95 @@
     </section>
 
     <!-- About Section -->
-    <section class="py-5" id="about">
+    <section class="py-5 bg-light" id="about">
         <div class="container">
-            <h2 class="text-center section-title">About The Campaign</h2>
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
-                    <img src="image2.jpg" alt="Campaign Rally" class="img-fluid rounded shadow">
+                    <h2 class="section-title">About Ochimapesa Campaign</h2>
+                    <p>The Ochimapesa Campaign is a community-driven initiative aimed at creating positive change and
+                        addressing key issues affecting our society. We believe in the power of collective action and
+                        are committed to making a lasting impact.</p>
+                    <p>Our campaign brings together people from all walks of life - youth, women, elders, professionals,
+                        and volunteers - to work towards common goals that benefit our entire community.</p>
+                    <p>By joining our team, you'll have the opportunity to contribute your skills, gain valuable
+                        experience, and be part of something truly meaningful.</p>
                 </div>
                 <div class="col-lg-6">
-                    <h3 class="mb-4">Our Vision for a Better Future</h3>
-                    <p>The Ochimapesa Campaign 2027 is built on the foundation of transparency, accountability, and
-                        community development. We believe in empowering every citizen to participate in the democratic
-                        process and shape the future of our region.</p>
-                    <p>Our campaign focuses on key areas including education reform, healthcare accessibility,
-                        infrastructure development, and economic empowerment for all citizens regardless of gender, age,
-                        or social status.</p>
-                    <p>Join us in this journey to bring positive change to our community. Together, we can build a
-                        future that works for everyone.</p>
-                    <a href="#" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#applyModal">Join
-                        Our Team</a>
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        alt="Team working together" class="img-fluid rounded shadow">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Positions Section -->
-    <section class="py-5 bg-light" id="positions">
+    <!-- Application Form Section -->
+    <section class="py-5" id="apply">
         <div class="container">
-            <h2 class="text-center section-title">Open Positions</h2>
-            <p class="text-center mb-5">We're looking for passionate individuals to fill these key roles in our campaign
-                team.</p>
+            <h2 class="text-center section-title">Application Form</h2>
+            <p class="text-center mb-5">Fill out the form below to apply for your preferred position.</p>
 
-            <div class="row g-4">
-                <!-- Position 1 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card position-card">
-                        <div class="card-header">
-                            <h5 class="mb-0">Communication & Marketing Strategist</h5>
-                        </div>
-                        <div class="card-body">
-                            <p>Lead our print and social media campaigns to effectively communicate our message to
-                                voters across all platforms.</p>
-                            <ul class="mb-4">
-                                <li>Develop comprehensive media strategies</li>
-                                <li>Manage social media platforms</li>
-                                <li>Coordinate press releases</li>
-                                <li>Create engaging content</li>
-                            </ul>
-                            <a href="#" class="btn btn-primary w-100" data-bs-toggle="modal"
-                                data-bs-target="#applyModal" data-position="Communication & Marketing Strategist">Apply
-                                Now</a>
-                        </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="application-form">
+                        <form id="campaignApplicationForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="firstName" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" id="firstName" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="lastName" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" id="lastName" required>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="phone" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="position" class="form-label">Position Applying For</label>
+                                <select class="form-select" id="position" required>
+                                    <option value="" selected disabled>Select a position</option>
+                                    <option value="Communication & Marketing Strategist">Communication & Marketing
+                                        Strategist</option>
+                                    <option value="Office Assistants & Planning Managers">Office Assistants & Planning
+                                        Managers</option>
+                                    <option value="Campaign Fund Mobilizers">Campaign Fund Mobilizers</option>
+                                    <option value="Seme Youth League Mobilizers">Seme Youth League Mobilizers</option>
+                                    <option value="Women League Champions">Women League Champions</option>
+                                    <option value="Wazee & Gentlemen Champions">Wazee & Gentlemen Champions</option>
+                                    <option value="Security Managers">Security Managers</option>
+                                    <option value="Project Managers">Project Managers</option>
+                                    <option value="Ochimapesa Volunteers">Ochimapesa Volunteers</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="motivation" class="form-label">Why do you want to join the Ochimapesa
+                                    Campaign?</label>
+                                <textarea class="form-control" id="motivation" rows="3" required></textarea>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="resume" class="form-label">Upload Resume/CV</label>
+                                <input class="form-control" type="file" id="resume" accept=".pdf,.doc,.docx">
+                            </div>
+
+                            <div class="form-check mb-4">
+                                <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                                <label class="form-check-label" for="agreeTerms">
+                                    I agree to the terms and conditions of the Ochimapesa Campaign
+                                </label>
+                            </div>
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">Submit Application</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
-
-                <!-- Position 2 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card position-card">
-                        <div class="card-header">
-                            <h5 class="mb-0">Office Assistants & Planning Managers</h5>
-                        </div>
-                        <div class="card-body">
-                            <p>Ensure smooth operations of campaign offices and assist in strategic planning and
-                                execution.</p>
-                            <ul class="mb-4">
-                                <li>Manage daily office operations</li>
-                                <li>Assist in campaign planning</li>
-                                <li>Coordinate logistics</li>
-                                <li>Prepare reports and documentation</li>
-                            </ul>
-                            <a href="#" class="btn btn-primary w-100" data-bs-toggle="modal"
-                                data-bs-target="#applyModal" data-position="Office Assistants & Planning Managers">Apply
-                                Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Position 3 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card position-card">
-                        <div class="card-header">
-                            <h5 class="mb-0">Campaign Fund Mobilizers</h5>
-                        </div>
-                        <div class="card-body">
-                            <p>Lead fundraising efforts from local and diaspora supporters through innovative platforms
-                                like GoFundMe.</p>
-                            <ul class="mb-4">
-                                <li>Develop fundraising strategies</li>
-                                <li>Engage diaspora community</li>
-                                <li>Manage online fundraising</li>
-                                <li>Track and report donations</li>
-                            </ul>
-                            <a href="#" class="btn btn-primary w-100" data-bs-toggle="modal"
-                                data-bs-target="#applyModal" data-position="Campaign Fund Mobilizers">Apply Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Position 4 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card position-card">
-                        <div class="card-header">
-                            <h5 class="mb-0">Seme Youth League Mobilizers</h5>
-                        </div>
-                        <div class="card-body">
-                            <p>Engage and mobilize the youth across Seme to participate in the campaign and voting
-                                process.</p>
-                            <ul class="mb-4">
-                                <li>Organize youth events</li>
-                                <li>Coordinate campus outreach</li>
-                                <li>Develop youth-friendly content</li>
-                                <li>Mobilize voter registration</li>
-                            </ul>
-                            <a href="#" class="btn btn-primary w-100" data-bs-toggle="modal"
-                                data-bs-target="#applyModal" data-position="Seme Youth League Mobilizers">Apply Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Position 5 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card position-card">
-                        <div class="card-header">
-                            <h5 class="mb-0">Women League Champions</h5>
-                        </div>
-                        <div class="card-body">
-                            <p>Advocate for women's issues and mobilize female voters across the region.</p>
-                            <ul class="mb-4">
-                                <li>Organize women's forums</li>
-                                <li>Address gender-specific concerns</li>
-                                <li>Mobilize women voters</li>
-                                <li>Promote women's empowerment</li>
-                            </ul>
-                            <a href="#" class="btn btn-primary w-100" data-bs-toggle="modal"
-                                data-bs-target="#applyModal" data-position="Women League Champions">Apply Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Position 6 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card position-card">
-                        <div class="card-header">
-                            <h5 class="mb-0">Wazee & Gentlemen Champions</h5>
-                        </div>
-                        <div class="card-body">
-                            <p>Engage with elders and gentlemen in the community to build support for our campaign.</p>
-                            <ul class="mb-4">
-                                <li>Organize elders' meetings</li>
-                                <li>Address community concerns</li>
-                                <li>Mobilize senior voters</li>
-                                <li>Promote intergenerational dialogue</li>
-                            </ul>
-                            <a href="#" class="btn btn-primary w-100" data-bs-toggle="modal"
-                                data-bs-target="#applyModal" data-position="Wazee & Gentlemen Champions">Apply Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Position 7 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card position-card">
-                        <div class="card-header">
-                            <h5 class="mb-0">Security Managers</h5>
-                        </div>
-                        <div class="card-body">
-                            <p>Ensure the safety and security of campaign events, personnel, and materials.</p>
-                            <ul class="mb-4">
-                                <li>Develop security plans</li>
-                                <li>Coordinate with local authorities</li>
-                                <li>Manage event security</li>
-                                <li>Implement safety protocols</li>
-                            </ul>
-                            <a href="#" class="btn btn-primary w-100" data-bs-toggle="modal"
-                                data-bs-target="#applyModal" data-position="Security Managers">Apply Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Position 8 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card position-card">
-                        <div class="card-header">
-                            <h5 class="mb-0">Project Managers</h5>
-                        </div>
-                        <div class="card-body">
-                            <p>Oversee and coordinate various campaign projects and initiatives.</p>
-                            <ul class="mb-4">
-                                <li>Plan and execute projects</li>
-                                <li>Manage timelines and budgets</li>
-                                <li>Coordinate teams</li>
-                                <li>Monitor and report progress</li>
-                            </ul>
-                            <a href="#" class="btn btn-primary w-100" data-bs-toggle="modal"
-                                data-bs-target="#applyModal" data-position="Project Managers">Apply Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Position 9 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card position-card">
-                        <div class="card-header">
-                            <h5 class="mb-0">Ochimapesa Volunteers</h5>
-                        </div>
-                        <div class="card-body">
-                            <p>Join our team of dedicated volunteers to support various campaign activities.</p>
-                            <ul class="mb-4">
-                                <li>Canvassing and door-to-door</li>
-                                <li>Event support</li>
-                                <li>Voter registration</li>
-                                <li>Community outreach</li>
-                            </ul>
-                            <a href="#" class="btn volunteer-btn w-100" data-bs-toggle="modal"
-                                data-bs-target="#volunteerModal">Volunteer Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Donation CTA -->
-    <section class="py-5 bg-primary text-white">
-        <div class="container text-center">
-            <h2 class="mb-4">Support Our Campaign</h2>
-            <p class="lead mb-5">Every contribution helps us reach more voters and share our vision for a better future.
-            </p>
-            <div class="d-flex justify-content-center gap-3 flex-wrap">
-                <a href="#" class="btn btn-light btn-lg rounded-pill px-4">Donate Locally</a>
-                <a href="#" class="btn btn-outline-light btn-lg rounded-pill px-4">GoFundMe</a>
-                <a href="#" class="btn btn-outline-light btn-lg rounded-pill px-4">M-Pesa</a>
             </div>
         </div>
     </section>
@@ -531,66 +493,69 @@
         <div class="container">
             <h2 class="text-center section-title">Contact Us</h2>
             <div class="row">
-                <div class="col-lg-5 mb-5 mb-lg-0">
-                    <h4 class="mb-4">Campaign Headquarters</h4>
-                    <p><i class="fas fa-map-marker-alt me-2"></i> Seme , Kisumu County</p>
-                    <p><i class="fas fa-phone me-2"></i> +254 724291815</p>
-                    <p><i class="fas fa-envelope me-2"></i> info@ochimapesa2027.com</p>
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <h3 class="mb-4">Get in Touch</h3>
+                            <div class="mb-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fas fa-map-marker-alt me-3 text-secondary"></i>
+                                    <p class="mb-0">Kisumu,Seme Constituency,Kenya</p>
+                                </div>
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fas fa-phone-alt me-3 text-secondary"></i>
+                                    <p class="mb-0">0724291815</p>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-envelope me-3 text-secondary"></i>
+                                    <p class="mb-0">info@ochimapesacampaign.org</p>
+                                </div>
+                            </div>
 
-                    <h4 class="mt-5 mb-4">Follow Our Campaign</h4>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-7">
-                    <form id="contactForm">
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <input type="text" class="form-control" placeholder="Your Name" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <input type="email" class="form-control" placeholder="Your Email" required>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Subject">
-                        </div>
-                        <div class="mb-3">
-                            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-4 mb-4 mb-md-0">
-                    <h5 class="mb-4">Ochimapesa 2027</h5>
-                    <p>Building a future that works for everyone through transparent leadership and community-driven
-                        development.</p>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h3 class="text-white mb-4">Ochimapesa Campaign</h3>
+                    <p>Empowering communities through collective action and meaningful engagement for a better future.
+                    </p>
                 </div>
-                <div class="col-md-2 mb-4 mb-md-0">
-                    <h5 class="mb-4">Quick Links</h5>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h4 class="text-white mb-4">Quick Links</h4>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#home" class="text-white text-decoration-none">Home</a></li>
-                        <li class="mb-2"><a href="#about" class="text-white text-decoration-none">About</a></li>
-                        <li class="mb-2"><a href="#positions" class="text-white text-decoration-none">Positions</a></li>
-                        <li class="mb-2"><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
+                        <li class="mb-2"><a href="#home" class="text-white-50">Home</a></li>
+                        <li class="mb-2"><a href="#positions" class="text-white-50">Positions</a></li>
+                        <li class="mb-2"><a href="#apply" class="text-white-50">Apply</a></li>
+                        <li class="mb-2"><a href="#about" class="text-white-50">About</a></li>
+                        <li><a href="#contact" class="text-white-50">Contact</a></li>
                     </ul>
                 </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h4 class="text-white mb-4">Positions</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#positions" class="text-white-50">Communication Strategist</a></li>
+                        <li class="mb-2"><a href="#positions" class="text-white-50">Fund Mobilizers</a></li>
+                        <li class="mb-2"><a href="#positions" class="text-white-50">Youth League</a></li>
+                        <li><a href="#positions" class="text-white-50">All Positions</a></li>
+                    </ul>
+                </div>
+
             </div>
-            <hr class="my-4 bg-light">
+            <hr class="mt-4 mb-3" style="border-color: rgba(255, 255, 255, 0.1);">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-0">&copy; 2027 Ochimapesa Campaign. All rights reserved.</p>
+                    <p class="mb-0 text-white-50">&copy; 2027 Ochimapesa Campaign. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0 text-white-50">Designed with Joel & Romeo <i class="fas fa-heart text-danger"></i>
+                        for
+                        our
+                        community</p>
                 </div>
             </div>
         </div>
@@ -599,213 +564,69 @@
     <!-- Back to Top Button -->
     <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
 
-    <!-- Application Modal -->
-    <div class="modal fade" id="applyModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Apply for Position</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="applicationForm">
-                        <div class="mb-3">
-                            <input type="text" class="form-control" id="positionApplied" readonly>
-                        </div>
-                        <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Full Name" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <input type="tel" class="form-control" placeholder="Phone Number" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Location/Constituency" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="resume" class="form-label">Upload Resume/CV</label>
-                            <input class="form-control" type="file" id="resume" required>
-                        </div>
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-primary">Submit Application</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Volunteer Modal -->
-    <div class="modal fade" id="volunteerModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Become a Volunteer</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="volunteerForm">
-                        <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Full Name" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <input type="tel" class="form-control" placeholder="Phone Number" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Location/Constituency" required>
-                        </div>
-                        <div class="mb-3">
-                            <select class="form-select" required>
-                                <option value="" disabled selected>Select your availability</option>
-                                <option value="part-time">Part-time (Weekends)</option>
-                                <option value="full-time">Full-time</option>
-                                <option value="flexible">Flexible hours</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <select class="form-select" required>
-                                <option value="" disabled selected>Preferred volunteer area</option>
-                                <option value="canvassing">Canvassing/Door-to-door</option>
-                                <option value="events">Event Support</option>
-                                <option value="social">Social Media</option>
-                                <option value="admin">Administrative Support</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <textarea class="form-control" rows="3" placeholder="Why do you want to volunteer with us?"
-                                required></textarea>
-                        </div>
-                        <div class="d-grid">
-                            <button type="submit" class="btn volunteer-btn">Join as Volunteer</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
+
+    <!-- Custom JavaScript -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Back to Top Button
-            const backToTopButton = document.querySelector('.back-to-top');
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
 
-            window.addEventListener('scroll', function () {
-                if (window.pageYOffset > 300) {
-                    backToTopButton.classList.add('active');
-                } else {
-                    backToTopButton.classList.remove('active');
-                }
-            });
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
 
-            backToTopButton.addEventListener('click', function (e) {
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
 
-            // Animated Counter for Stats
-            function animateCounter(id, target, duration = 2000) {
-                const element = document.getElementById(id);
-                const start = 0;
-                const increment = target / (duration / 16);
-                let current = start;
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
 
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        clearInterval(timer);
-                        current = target;
-                    }
-
-                    if (id === 'fundsRaised') {
-                        element.textContent = Math.floor(current).toLocaleString();
-                    } else {
-                        element.textContent = Math.floor(current);
-                    }
-                }, 16);
-            }
-
-            // Initialize counters when stats section is in view
-            const statsSection = document.querySelector('.bg-light');
-            const observer = new IntersectionObserver((entries) => {
-                if (entries[0].isIntersecting) {
-                    animateCounter('positionsCount', 9);
-                    animateCounter('daysLeft', 730); // Approximately 2 years to August 2027
-                    animateCounter('fundsRaised', 0);
-                    animateCounter('volunteersCount', 0);
-                    observer.unobserve(statsSection);
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 }
             });
+        });
 
-            observer.observe(statsSection);
+        // Form submission
+        const applicationForm = document.getElementById('campaignApplicationForm');
 
-            // Position application form
-            const applyModal = document.getElementById('applyModal');
-            if (applyModal) {
-                applyModal.addEventListener('show.bs.modal', function (event) {
-                    const button = event.relatedTarget;
-                    const position = button.getAttribute('data-position');
-                    const modalTitle = applyModal.querySelector('.modal-title');
-                    const positionInput = applyModal.querySelector('#positionApplied');
+        applicationForm.addEventListener('submit', (e) => {
+            e.preventDefault();
 
-                    modalTitle.textContent = `Apply for ${position}`;
-                    positionInput.value = position;
-                });
-            }
+            // Here you would typically send the form data to a server
+            // For this example, we'll just show an alert
 
-            // Form submission handling
-            const applicationForm = document.getElementById('applicationForm');
-            if (applicationForm) {
-                applicationForm.addEventListener('submit', function (e) {
-                    e.preventDefault();
-                    alert('Thank you for your application! We will review your information and get back to you soon.');
-                    const modal = bootstrap.Modal.getInstance(applyModal);
-                    modal.hide();
-                    applicationForm.reset();
-                });
-            }
+            const position = document.getElementById('position').value;
+            const name = document.getElementById('firstName').value + ' ' + document.getElementById('lastName').value;
 
-            const volunteerForm = document.getElementById('volunteerForm');
-            if (volunteerForm) {
-                volunteerForm.addEventListener('submit', function (e) {
-                    e.preventDefault();
-                    alert('Thank you for volunteering with us! A campaign representative will contact you soon.');
-                    const modal = bootstrap.Modal.getInstance(document.getElementById('volunteerModal'));
-                    modal.hide();
-                    volunteerForm.reset();
-                });
-            }
+            alert(`Thank you, ${name}! Your application for ${position} has been submitted successfully. We'll review your application and get back to you soon.`);
 
-            const contactForm = document.getElementById('contactForm');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function (e) {
-                    e.preventDefault();
-                    alert('Thank you for your message! We will respond to your inquiry as soon as possible.');
-                    contactForm.reset();
-                });
-            }
+            // Reset the form
+            applicationForm.reset();
 
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
 
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 70,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
+        // Initialize tooltips
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
         });
     </script>
 </body>
